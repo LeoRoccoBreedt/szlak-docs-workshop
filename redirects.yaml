@@ -1,0 +1,12 @@
+# Anchor and path redirects, applied at build time by the docs host.
+redirects:
+  - from: /api/trips
+    to: /api/search
+  - from: /api/search#price
+    to: /api/search#max_price
+  - from: /guides/budget
+    to: /guides/pricing
+  - from: /api/search#colour
+    to: /api/search#trail_colour
+  - from: /quickstart/first-request
+    to: /quickstart

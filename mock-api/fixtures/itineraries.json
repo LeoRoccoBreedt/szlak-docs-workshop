@@ -1,0 +1,39 @@
+{
+  "count": 3,
+  "itineraries": [
+    {
+      "itinerary_id": "itn_8812",
+      "trip_id": "krk-zak-001",
+      "traveller": "A. Nowak",
+      "status": "in_progress",
+      "legs": [
+        {"leg": 1, "from": "Kraków", "to": "Chochołów", "status": "complete"},
+        {"leg": 2, "from": "Chochołów", "to": "Kiry", "status": "complete"},
+        {"leg": 3, "from": "Kiry", "to": "Zakopane", "status": "delayed",
+         "delay_hours": 14,
+         "delay_reason": "Trail closed above Hala Ornak - freezing rain"}
+      ]
+    },
+    {
+      "itinerary_id": "itn_8813",
+      "trip_id": "gda-hel-002",
+      "traveller": "M. Kowalczyk",
+      "status": "confirmed",
+      "legs": [
+        {"leg": 1, "from": "Gdańsk", "to": "Sopot", "status": "scheduled"},
+        {"leg": 2, "from": "Sopot", "to": "Władysławowo", "status": "scheduled"},
+        {"leg": 3, "from": "Władysławowo", "to": "Hel", "status": "scheduled"}
+      ]
+    },
+    {
+      "itinerary_id": "itn_8814",
+      "trip_id": "tor-mal-005",
+      "traveller": "J. Lewandowska",
+      "status": "complete",
+      "legs": [
+        {"leg": 1, "from": "Toruń", "to": "Grudziądz", "status": "complete"},
+        {"leg": 2, "from": "Grudziądz", "to": "Malbork", "status": "complete"}
+      ]
+    }
+  ]
+}

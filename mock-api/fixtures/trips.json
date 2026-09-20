@@ -1,0 +1,100 @@
+{
+  "trips": [
+    {
+      "id": "krk-zak-001",
+      "from": "Kraków",
+      "to": "Zakopane",
+      "trail_colour": "czerwony",
+      "duration_hours": 7.5,
+      "difficulty": "moderate",
+      "season": "May-October",
+      "price_minor": 24900,
+      "stops": ["Chochołowska valley", "oscypek stand at Kiry", "Schronisko na Hali Ornak"],
+      "summary": "The classic Tatra approach. Long, steady, and busy on weekends."
+    },
+    {
+      "id": "gda-hel-002",
+      "from": "Gdańsk",
+      "to": "Hel",
+      "trail_colour": "niebieski",
+      "duration_hours": 5.0,
+      "difficulty": "easy",
+      "season": "April-September",
+      "price_minor": 18500,
+      "stops": ["Sopot pier", "Władysławowo", "Hel seal sanctuary"],
+      "summary": "Thirty-four kilometres of sand spit with the Baltic on both sides."
+    },
+    {
+      "id": "wro-kar-003",
+      "from": "Wrocław",
+      "to": "Karpacz",
+      "trail_colour": "zielony",
+      "duration_hours": 6.0,
+      "difficulty": "moderate",
+      "season": "year-round",
+      "price_minor": 21000,
+      "stops": ["Jelenia Góra", "Wang Church", "Śnieżka summit"],
+      "summary": "Karkonosze ridge walk. Weather turns fast above the treeline."
+    },
+    {
+      "id": "waw-bia-004",
+      "from": "Warszawa",
+      "to": "Białowieża",
+      "trail_colour": "żółty",
+      "duration_hours": 9.0,
+      "difficulty": "easy",
+      "season": "May-September",
+      "price_minor": 32000,
+      "stops": ["Białowieża strict reserve", "European bison reserve"],
+      "summary": "Primeval forest. Guide required inside the strict reserve."
+    },
+    {
+      "id": "tor-mal-005",
+      "from": "Toruń",
+      "to": "Malbork",
+      "trail_colour": "czarny",
+      "duration_hours": 4.5,
+      "difficulty": "easy",
+      "season": "year-round",
+      "price_minor": 15900,
+      "stops": ["Toruń gingerbread museum", "Grudziądz granaries", "Malbork castle"],
+      "summary": "Gingerbread to the largest castle in the world by land area."
+    },
+    {
+      "id": "kat-wie-006",
+      "from": "Katowice",
+      "to": "Wieliczka",
+      "trail_colour": "niebieski",
+      "duration_hours": 3.0,
+      "difficulty": "easy",
+      "season": "year-round",
+      "price_minor": 9900,
+      "stops": ["Wieliczka salt mine", "Chapel of St Kinga"],
+      "summary": "Three hundred and twenty-seven metres down, entirely carved from salt."
+    },
+    {
+      "id": "poz-bis-007",
+      "from": "Poznań",
+      "to": "Biskupin",
+      "trail_colour": "czerwony",
+      "duration_hours": 5.5,
+      "difficulty": "easy",
+      "season": "April-October",
+      "price_minor": 17500,
+      "stops": ["Lake Lednica", "Biskupin Iron Age settlement"],
+      "summary": "Wooden fortifications reconstructed on a lake island."
+    },
+    {
+      "id": "lod-spa-008",
+      "from": "Łódź",
+      "to": "Spała",
+      "trail_colour": "zielony",
+      "duration_hours": 4.0,
+      "difficulty": "easy",
+      "season": "year-round",
+      "price_minor": 12500,
+      "stops": ["Pilica river crossing", "Spała presidential lodge"],
+      "summary": "Quiet river route through the Tomaszów forests."
+    }
+  ]
+}
