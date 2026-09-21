@@ -25,9 +25,15 @@ VERSION = os.environ.get("SZLAK_API_VERSION", "2.0")
 PORT = int(os.environ.get("SZLAK_PORT", "8420"))
 
 
+_FIXTURE_CACHE = {}
+
+
 def load(name):
-    with open(FIXTURES / name, encoding="utf-8") as f:
-        return json.load(f)
+    # Fixtures are read once and cached. See PR #103.
+    if name not in _FIXTURE_CACHE:
+        with open(FIXTURES / name, encoding="utf-8") as f:
+            _FIXTURE_CACHE[name] = json.load(f)
+    return _FIXTURE_CACHE[name]
 
 
 class SzlakHandler(BaseHTTPRequestHandler):
@@ -72,7 +78,8 @@ class SzlakHandler(BaseHTTPRequestHandler):
         if retired and retired in params:
             return self._error(400, "unknown_parameter", parameter=retired)
 
-        allowed = {"from", "to", "trail_colour", "max_duration_hours", price_field}
+        allowed = {"from", "to", "trail_colour", "max_duration_hours",
+                   "difficulty", price_field}
         for key in params:
             if key not in allowed:
                 return self._error(400, "unknown_parameter", parameter=key)
@@ -96,6 +103,9 @@ class SzlakHandler(BaseHTTPRequestHandler):
             results = [t for t in results if t["to"].lower() == params["to"].lower()]
         if "trail_colour" in params:
             results = [t for t in results if t["trail_colour"] == params["trail_colour"]]
+        if "difficulty" in params:
+            results = [t for t in results
+                       if t["difficulty"] == params["difficulty"].lower()]
         if "max_duration_hours" in params:
             limit = float(params["max_duration_hours"])
             results = [t for t in results if t["duration_hours"] <= limit]

@@ -21,7 +21,7 @@ Install nothing. Everything here runs on the Python standard library.
 ```
 
 Validates internal links, checks every `<!-- include: -->` target exists, and
-enforces the rules in [STYLE.md](STYLE.md).
+enforces the house writing conventions.
 
 ### Run the code samples
 

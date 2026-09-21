@@ -6,7 +6,7 @@ Validates the documentation without installing anything:
 
   1. every internal link resolves
   2. every `<!-- include: path -->` target exists
-  3. STYLE.md rules that can be checked mechanically
+  3. the house writing conventions that can be checked mechanically
 
 Exit code 0 means the docs are publishable.
 """
@@ -24,12 +24,12 @@ IMAGE = re.compile(r"!\[[^\]]*\]\(([^)\s]+)\)")
 FENCE = re.compile(r"^```(\w*)", re.MULTILINE)
 
 BANNED_WORDS = {
-    "simply": "rule 2",
-    "just ": "rule 2",
-    "easily": "rule 2",
-    "journey": "rule 1",
-    "voyage": "rule 1",
-    "adventure": "rule 1",
+    "simply": "if it were simple they would not be reading the docs",
+    "just ": "if it were simple they would not be reading the docs",
+    "easily": "if it were simple they would not be reading the docs",
+    "journey": "it is a trip, never a journey",
+    "voyage": "it is a trip, never a voyage",
+    "adventure": "it is a trip, never an adventure",
 }
 
 # Polish place names that must keep their diacritics.
@@ -96,8 +96,8 @@ def check_page(path):
         if language in {"python", "py", "javascript", "js"}:
             line = text[: match.start()].count("\n") + 1
             report(path, line,
-                   f"style rule 5: pasted {language} block. "
-                   f"Move it to samples/ and use <!-- include: -->",
+                   f"pasted {language} block. Code samples belong in samples/ "
+                   f"and are included by reference with <!-- include: -->",
                    warn=True)
 
     # 5. banned words
@@ -105,13 +105,15 @@ def check_page(path):
         lowered = line_text.lower()
         for word, rule in BANNED_WORDS.items():
             if word in lowered:
-                report(path, index, f"style {rule}: avoid {word.strip()!r}")
+                report(path, index, f"avoid {word.strip()!r} - {rule}")
 
     # 6. diacritics
     for index, line_text in enumerate(lines, start=1):
         for bare, correct in DIACRITICS.items():
             if bare != correct and re.search(rf"\b{bare}\b", line_text):
-                report(path, index, f"style rule 4: write {correct!r}, not {bare!r}")
+                report(path, index,
+                       f"Polish place names keep their diacritics: "
+                       f"write {correct!r}, not {bare!r}")
 
     # 7. parameter table shape
     if "## Parameters" in text:
@@ -122,7 +124,7 @@ def check_page(path):
             if header and header != PARAM_HEADER:
                 line = text[: text.index("## Parameters")].count("\n") + 1
                 report(path, line,
-                       f"style rule 3: parameter table columns must be\n"
+                       f"parameter tables must use these columns in this order:\n"
                        f"      {PARAM_HEADER}")
 
 
