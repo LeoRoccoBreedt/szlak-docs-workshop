@@ -7,10 +7,10 @@ No network access required, no dependencies beyond the standard library.
 
 The API version is controlled by the SZLAK_API_VERSION environment variable:
 
-    2.0  (default)  max_price      - accepts zloty
-    2.1             max_price_minor - accepts grosze, rejects max_price
+    2.0  (default)  max_price, travellers
+    2.1             max_price_minor (grosze), party_size; the old names return 400
 
-See ISSUE-47.md for the change that introduced 2.1.
+See .github/PR-102.md and PR-104.md for the changes in 2.1.
 """
 
 import json
@@ -127,9 +127,14 @@ class SzlakHandler(BaseHTTPRequestHandler):
         if "trip_id" not in body:
             return self._error(400, "missing_parameter", parameter="trip_id")
 
-        travellers = body.get("travellers", 1)
+        # v2.1 renamed "travellers" to "party_size", in the request and the response.
+        count_field = "party_size" if VERSION >= "2.1" else "travellers"
+        if VERSION >= "2.1" and "travellers" in body:
+            return self._error(400, "unknown_parameter", parameter="travellers")
+
+        travellers = body.get(count_field, 1)
         if not isinstance(travellers, int) or travellers < 1:
-            return self._error(400, "invalid_parameter", parameter="travellers")
+            return self._error(400, "invalid_parameter", parameter=count_field)
 
         trips = {t["id"]: t for t in load("trips.json")["trips"]}
         trip = trips.get(body["trip_id"])
@@ -144,7 +149,7 @@ class SzlakHandler(BaseHTTPRequestHandler):
         return self._send(201, {
             "booking_id": "bkg_" + re.sub(r"\W", "", trip["id"])[:8],
             "trip_id": trip["id"],
-            "travellers": travellers,
+            count_field: travellers,
             "total_minor": total,
             "currency": "PLN",
             "status": "confirmed",
