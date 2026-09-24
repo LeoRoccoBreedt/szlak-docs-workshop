@@ -29,7 +29,7 @@ See [group bookings](../guides/group-bookings.md) for a worked example.
 }
 ```
 
-`total_minor` is expressed in grosze. See [pricing](../guides/pricing.md).
+total_minor is expressed in grosze. See [pricing](../guides/pricing.md).
 
 ## Example
 

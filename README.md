@@ -20,8 +20,8 @@ Install nothing. Everything here runs on the Python standard library.
 ./build.sh
 ```
 
-Validates internal links, checks every `<!-- include: -->` target exists, and
-enforces the house writing conventions.
+Builds the docs: checks that every internal link resolves, every image exists,
+and every `<!-- include: -->` target is present.
 
 ### Run the code samples
 

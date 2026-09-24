@@ -11,7 +11,7 @@ know which trail they want before they know what they want to spend.
 
 ![Trail waymarking on the Chochołowska approach](../img/waymark.png)
 *The red waymark above Kiry. Trips on this route are filtered with
-`trail_colour=czerwony` and priced with `max_price` in złoty.*
+trail_colour=czerwony and priced with `max_price` in złoty.*
 
 ## 2. Book
 

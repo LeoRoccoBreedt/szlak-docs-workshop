@@ -22,4 +22,4 @@ write any code that deals with money.
 ## Trail colours
 
 Polish trails are waymarked by colour, and Szlak uses the same values:
-`czerwony`, `niebieski`, `zielony`, `żółty`, `czarny`.
+czerwony, niebieski, zielony, żółty, czarny.

@@ -11,11 +11,11 @@ This endpoint takes no parameters.
 
 | Value | Meaning |
 | --- | --- |
-| `scheduled` | Not yet started |
-| `complete` | Finished |
-| `delayed` | Held up. Includes `delay_hours` and `delay_reason` |
+| scheduled | Not yet started |
+| complete | Finished |
+| delayed | Held up. Includes delay_hours and delay_reason |
 
-A delayed leg carries a human-readable `delay_reason`. Weather closures on the
+A delayed leg carries a human-readable delay_reason. Weather closures on the
 Tatra and Karkonosze routes are the most common cause.
 
 ## Example
